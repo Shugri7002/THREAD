@@ -1,0 +1,90 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #eeeeee;
+    color: #111111;
+}
+
+.container {
+    width: 100%;
+    max-width: 390px;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 24px;
+    background-color: white;
+}
+
+header {
+    margin-bottom: 40px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.current-topic {
+    margin-bottom: 40px;
+}
+
+.current-topic p {
+    margin: 0 0 8px;
+    font-size: 12px;
+    color: #777777;
+}
+
+.current-topic h2 {
+    margin: 0 0 10px;
+    font-size: 32px;
+}
+
+.current-topic span {
+    display: inline-block;
+    padding: 6px 12px;
+    border: 1px solid #111111;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.connections > h2 {
+    margin-bottom: 8px;
+    font-size: 26px;
+}
+
+.connections > p {
+    margin-top: 0;
+    margin-bottom: 24px;
+    color: #777777;
+}
+
+.connection-card {
+    margin-bottom: 16px;
+    padding: 20px;
+    background-color: #eeeeee;
+    border-radius: 16px;
+}
+
+.connection-card p {
+    margin: 0 0 8px;
+    font-size: 12px;
+    color: #777777;
+}
+
+.connection-card h3 {
+    margin: 0 0 20px;
+    font-size: 20px;
+}
+
+.connection-card button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 20px;
+    background-color: #111111;
+    color: white;
+    cursor: pointer;
+}

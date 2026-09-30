@@ -1,10 +1,62 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THREAD</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
+<main class="container">
+
+    <header>
+        <h1>THREAD</h1>
+    </header>
+
+    <section class="current-topic">
+        <p>YOU'RE EXPLORING</p>
+        <h2>Frank Ocean</h2>
+        <span>Music</span>
+    </section>
+
+    <section class="connections">
+
+        <h2>Where does Frank Ocean lead next?</h2>
+        <p>Choose a connection to continue your thread.</p>
+
+        <div class="connection-card">
+            <p>Photography</p>
+            <h3>Wolfgang Tillmans</h3>
+            <button onclick="chooseConnection('Wolfgang Tillmans')">
+                Explore connection
+            </button>
+        </div>
+
+        <div class="connection-card">
+            <p>Film</p>
+            <h3>Moonlight</h3>
+            <button onclick="chooseConnection('Moonlight')">
+                Explore connection
+            </button>
+        </div>
+
+        <div class="connection-card">
+            <p>Literature</p>
+            <h3>James Baldwin</h3>
+            <button onclick="chooseConnection('James Baldwin')">
+                Explore connection
+            </button>
+        </div>
+
+    </section>
+
+</main>
+
+<script src="script.js"></script>
 
 </body>
 </html>
