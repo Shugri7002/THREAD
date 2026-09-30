@@ -1,10 +1,63 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THREAD - Connection</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
+<main class="container">
+
+    <header>
+        <h1>THREAD</h1>
+    </header>
+
+    <section class="route">
+        <p>YOUR THREAD</p>
+        <h3>Frank Ocean → <span id="selected-topic"></span></h3>
+    </section>
+
+    <section class="connection-question">
+
+        <div class="subject">
+            <div class="image-placeholder"></div>
+            <p>Music</p>
+            <h2>Frank Ocean</h2>
+        </div>
+
+        <div class="connector-line"></div>
+
+        <h1 class="question-title">
+            What connects them?
+        </h1>
+
+        <div class="connector-line"></div>
+
+        <div class="subject">
+            <div class="image-placeholder"></div>
+            <p id="selected-category"></p>
+            <h2 id="selected-name"></h2>
+        </div>
+
+        <button id="reveal-button">
+            Reveal connection
+        </button>
+
+        <div id="reveal-text" class="reveal-text">
+            <h2>The connection</h2>
+            <p id="connection-description"></p>
+        </div>
+
+    </section>
+
+</main>
+
+<script src="script.js"></script>
 
 </body>
 </html>
