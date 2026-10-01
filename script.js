@@ -1,56 +1,59 @@
-﻿function chooseConnection(topic) {
-    localStorage.setItem("selectedTopic", topic);
+const connections = {
+    "Wolfgang Tillmans": {
+        name: "WOLFGANG TILLMANS",
+        category: "PHOTOGRAPHY",
+        explanation: "Wolfgang Tillmans photographed Frank Ocean and contributed to the visual world around Frank Ocean's work. Their connection shows how music and photography can influence each other.",
+        takeaway: "Music becomes image; photography becomes part of the sound."
+    },
+    Moonlight: {
+        name: "MOONLIGHT",
+        category: "FILM",
+        explanation: "Moonlight and Frank Ocean both use quiet, emotional storytelling to explore identity, memory and tenderness.",
+        takeaway: "A feeling can move between music and film."
+    },
+    "James Baldwin": {
+        name: "JAMES BALDWIN",
+        category: "LITERATURE",
+        explanation: "James Baldwin and Frank Ocean both explore love, identity and the difficulty of being fully seen.",
+        takeaway: "Personal stories can become larger cultural truths."
+    }
+};
+
+function setText(id, text) {
+    const element = document.getElementById(id);
+
+    if (element) {
+        element.textContent = text;
+    }
+}
+
+function chooseConnection(connectionName) {
+    localStorage.setItem("selectedConnection", connectionName);
     window.location.href = "connection.html";
 }
 
+function getSelectedConnection() {
+    const savedConnection = localStorage.getItem("selectedConnection");
 
-const selectedTopic = localStorage.getItem("selectedTopic");
-
-const selectedTopicText = document.getElementById("selected-topic");
-const selectedName = document.getElementById("selected-name");
-const selectedCategory = document.getElementById("selected-category");
-
-if (selectedTopicText) {
-    selectedTopicText.textContent = selectedTopic;
-    selectedName.textContent = selectedTopic;
-
-    if (selectedTopic === "Wolfgang Tillmans") {
-        selectedCategory.textContent = "Photography";
+    if (connections[savedConnection]) {
+        return connections[savedConnection];
     }
 
-    if (selectedTopic === "Moonlight") {
-        selectedCategory.textContent = "Film";
-    }
-
-    if (selectedTopic === "James Baldwin") {
-        selectedCategory.textContent = "Literature";
-    }
+    return connections["Wolfgang Tillmans"];
 }
 
+function showSelectedConnection() {
+    const selectedConnection = getSelectedConnection();
 
-const revealButton = document.getElementById("reveal-button");
-
-if (revealButton) {
-    revealButton.addEventListener("click", function () {
-
-        const revealText = document.getElementById("reveal-text");
-        const description = document.getElementById("connection-description");
-
-        if (selectedTopic === "Wolfgang Tillmans") {
-            description.textContent =
-                "Wolfgang Tillmans photographed Frank Ocean for his album Blonde.";
-        }
-
-        if (selectedTopic === "Moonlight") {
-            description.textContent =
-                "Frank Ocean's music and Moonlight explore similar themes of identity and emotion.";
-        }
-
-        if (selectedTopic === "James Baldwin") {
-            description.textContent =
-                "Frank Ocean and James Baldwin both explore identity, love and personal experience in their work.";
-        }
-
-        revealText.style.display = "block";
-    });
+    setText("selected-route", selectedConnection.name);
+    setText("selected-name", selectedConnection.name);
+    setText("selected-category", selectedConnection.category);
+    setText("connection-text", selectedConnection.explanation);
+    setText("takeaway-text", selectedConnection.takeaway);
 }
+
+function openRevealPage() {
+    window.location.href = "reveal.html";
+}
+
+showSelectedConnection();

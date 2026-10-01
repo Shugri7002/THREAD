@@ -1,62 +1,95 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THREAD</title>
-
+    <title>THREAD - Choose Connection</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <main class="page">
+        <header class="header">
+            <a class="logo" href="index.html">THREAD</a>
+            <a class="back-button" href="index.html" aria-label="Back">&larr;</a>
+        </header>
 
-<main class="container">
+        <section class="topic-page">
+            <p class="breadcrumb">TOPICS &mdash; MUSIC &mdash; FRANK OCEAN</p>
 
-    <header>
-        <h1>THREAD</h1>
-    </header>
+            <p class="pill">MUSIC</p>
+            <h1 class="topic-title">FRANK<br>OCEAN</h1>
+            <div class="placeholder topic-image"></div>
 
-    <section class="current-topic">
-        <p>YOU'RE EXPLORING</p>
-        <h2>Frank Ocean</h2>
-        <span>Music</span>
-    </section>
+            <p class="topic-copy">An elusive singer, writer and image-maker whose work reshaped the emotional range of modern pop through silence, slowness and ambiguity.</p>
 
-    <section class="connections">
+            <div class="tabs" aria-label="Topic sections">
+                <span class="active-tab">Quick Read</span>
+                <span>Listen</span>
+                <span>Deep Dive</span>
+            </div>
 
-        <h2>Where does Frank Ocean lead next?</h2>
-        <p>Choose a connection to continue your thread.</p>
+            <div class="read-row">
+                <span>QUICK READ</span>
+                <span>4 MIN READ</span>
+            </div>
 
-        <div class="connection-card">
-            <p>Photography</p>
-            <h3>Wolfgang Tillmans</h3>
-            <button onclick="chooseConnection('Wolfgang Tillmans')">
-                Explore connection
+            <h2 class="article-title">Frank Ocean's music feels intimate because it leaves room for the listener to finish the thought.</h2>
+
+            <p>He first surfaced as a songwriter at the edges of the industry, then stepped forward with a voice that was direct but never overexplained. Channel Orange moved between memory and desire; Blonde broke those ideas into fragments and treated silence like an instrument.</p>
+
+            <p>Sparse interviews, controlled visuals and long gaps between releases make each appearance feel considered. The mystery protects the work from becoming background noise.</p>
+
+            <div class="takeaway">
+                <p class="label">IN ONE LINE</p>
+                <p>Frank Ocean made uncertainty feel like a complete artistic language.</p>
+            </div>
+        </section>
+
+        <section class="connection-list">
+            <h2 class="section-title">WHERE TO NEXT?</h2>
+            <p class="section-copy">Choose one connection to continue your thread.</p>
+
+            <button class="card choice-card" type="button" onclick="chooseConnection('Wolfgang Tillmans')">
+                <div class="placeholder"></div>
+                <div class="card-body">
+                    <p class="label">PHOTOGRAPHY</p>
+                    <h2>WOLFGANG TILLMANS</h2>
+                    <p>A photographer connected to Frank Ocean's visual world.</p>
+                    <div class="action-row">
+                        <span>Explore</span>
+                        <span>&rarr;</span>
+                    </div>
+                </div>
             </button>
-        </div>
 
-        <div class="connection-card">
-            <p>Film</p>
-            <h3>Moonlight</h3>
-            <button onclick="chooseConnection('Moonlight')">
-                Explore connection
+            <button class="card choice-card" type="button" onclick="chooseConnection('Moonlight')">
+                <div class="placeholder"></div>
+                <div class="card-body">
+                    <p class="label">FILM</p>
+                    <h2>MOONLIGHT</h2>
+                    <p>A film that shares something deeper with Frank Ocean's work.</p>
+                    <div class="action-row">
+                        <span>Explore</span>
+                        <span>&rarr;</span>
+                    </div>
+                </div>
             </button>
-        </div>
 
-        <div class="connection-card">
-            <p>Literature</p>
-            <h3>James Baldwin</h3>
-            <button onclick="chooseConnection('James Baldwin')">
-                Explore connection
+            <button class="card choice-card" type="button" onclick="chooseConnection('James Baldwin')">
+                <div class="placeholder"></div>
+                <div class="card-body">
+                    <p class="label">BOOKS / LITERATURE</p>
+                    <h2>JAMES BALDWIN</h2>
+                    <p>A writer whose ideas connect unexpectedly to Frank Ocean.</p>
+                    <div class="action-row">
+                        <span>Explore</span>
+                        <span>&rarr;</span>
+                    </div>
+                </div>
             </button>
-        </div>
+        </section>
+    </main>
 
-    </section>
-
-</main>
-
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>

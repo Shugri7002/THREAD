@@ -1,63 +1,50 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THREAD - Connection</title>
-
+    <title>THREAD - What Connects Them?</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <main class="page">
+        <header class="header">
+            <a class="logo" href="index.html">THREAD</a>
+        </header>
 
-<main class="container">
-
-    <header>
-        <h1>THREAD</h1>
-    </header>
-
-    <section class="route">
-        <p>YOUR THREAD</p>
-        <h3>Frank Ocean → <span id="selected-topic"></span></h3>
-    </section>
-
-    <section class="connection-question">
-
-        <div class="subject">
-            <div class="image-placeholder"></div>
-            <p>Music</p>
-            <h2>Frank Ocean</h2>
+        <div class="route">
+            <span>FRANK OCEAN</span>
+            <span></span>
+            <span id="selected-route"></span>
         </div>
 
-        <div class="connector-line"></div>
+        <section class="intro">
+            <h1 class="title">WHAT CONNECTS<br>THEM?</h1>
+            <p class="label">FOLLOW THE THREAD</p>
+        </section>
 
-        <h1 class="question-title">
-            What connects them?
-        </h1>
+        <section class="subject">
+            <div class="placeholder subject-image"></div>
+            <p class="pill">MUSIC</p>
+            <h2 class="subject-name">FRANK OCEAN</h2>
+        </section>
 
-        <div class="connector-line"></div>
+        <svg class="thread-line" viewBox="0 0 180 360" aria-hidden="true">
+            <path d="M94 8 C28 72, 154 120, 82 184 C20 240, 150 278, 82 352" />
+        </svg>
 
-        <div class="subject">
-            <div class="image-placeholder"></div>
-            <p id="selected-category"></p>
-            <h2 id="selected-name"></h2>
-        </div>
+        <section class="subject">
+            <div class="placeholder subject-image"></div>
+            <p class="pill" id="selected-category"></p>
+            <h2 class="subject-name" id="selected-name"></h2>
+        </section>
 
-        <button id="reveal-button">
-            Reveal connection
+        <button class="reveal-button" type="button" onclick="openRevealPage()">
+            <span>REVEAL CONNECTION</span>
+            <span>&rarr;</span>
         </button>
+    </main>
 
-        <div id="reveal-text" class="reveal-text">
-            <h2>The connection</h2>
-            <p id="connection-description"></p>
-        </div>
-
-    </section>
-
-</main>
-
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
