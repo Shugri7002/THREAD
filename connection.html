@@ -6,48 +6,58 @@
     <title>THREAD - The Connection</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <main class="page">
-        <header class="header">
-            <a class="logo" href="topic.html">THREAD</a>
+<body class="preview-body">
+    <main class="page preview-page connection-page">
+        <header class="header quick-header">
+            <a href="topic.html"><img src="assets/connection-logo.svg" alt="THREAD" width="85" height="30"></a>
+            <a class="back-button" href="reveal.html" aria-label="Back to the reveal">
+                <img src="assets/reveal-back.svg" alt="" width="16" height="16">
+            </a>
         </header>
 
-        <div class="route">
-            <span>FRANK OCEAN</span>
-            <span></span>
-            <span id="selected-route"></span>
+        <div class="connection-content">
+            <h1 class="connection-heading">
+                <img src="assets/connection-heading.svg" alt="The Connection" width="318" height="25">
+            </h1>
+
+            <section class="reveal-pair" aria-label="Connected subjects">
+                <article class="preview-subject connection-subject">
+                    <div class="connection-photo">
+                        <img src="assets/reveal-frank.png" alt="Frank Ocean wearing headphones">
+                    </div>
+                    <p class="preview-category">MUSIC</p>
+                    <h2 class="preview-name connection-name">
+                        <img src="assets/connection-frank-title.svg" alt="Frank Ocean" width="125" height="12">
+                    </h2>
+                </article>
+
+                <article class="preview-subject preview-selected connection-subject" id="selected-subject">
+                    <div class="connection-photo">
+                        <img id="selected-photo" alt="" hidden>
+                    </div>
+                    <p class="preview-category" id="selected-category"></p>
+                    <h2 class="preview-name connection-name">
+                        <span id="selected-name"></span>
+                        <img id="selected-title" alt="" hidden>
+                    </h2>
+                </article>
+            </section>
+
+            <section class="connection-story" aria-label="Connection explanation">
+                <p id="connection-text"></p>
+                <div class="takeaway" id="connection-takeaway">
+                    <p class="label">IN ONE LINE</p>
+                    <p id="takeaway-text"></p>
+                </div>
+            </section>
         </div>
 
-        <section class="intro">
-            <h1 class="title">THE<br>CONNECTION</h1>
-        </section>
-
-        <section class="reveal-pair">
-            <article>
-                <div class="placeholder small-image"></div>
-                <p class="pill">MUSIC</p>
-                <h2 class="small-name">FRANK OCEAN</h2>
-            </article>
-
-            <article>
-                <div class="placeholder small-image"></div>
-                <p class="pill" id="selected-category"></p>
-                <h2 class="small-name" id="selected-name"></h2>
-            </article>
-        </section>
-
-        <section class="reveal">
-            <p id="connection-text"></p>
-            <div class="takeaway">
-                <p class="label">IN ONE LINE</p>
-                <p id="takeaway-text"></p>
-            </div>
-        </section>
-
-        <button class="reveal-button" type="button">
-            <span>CONTINUE THREAD</span>
-            <span>&rarr;</span>
-        </button>
+        <div class="preview-action">
+            <a class="reveal-button" href="topic.html#connection-choices">
+                <img src="assets/connection-continue.svg" alt="Continue thread" width="120" height="9">
+                <img src="assets/reveal-action-arrow.svg" alt="" width="12" height="12">
+            </a>
+        </div>
     </main>
 
     <script src="script.js"></script>

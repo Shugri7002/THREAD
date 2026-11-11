@@ -4,7 +4,8 @@ const connections = {
         category: "PHOTOGRAPHY",
         photo: "assets/reveal-wolfgang.png",
         title: "assets/reveal-wolfgang-title.svg",
-        explanation: "Wolfgang Tillmans photographed Frank Ocean and contributed to the visual world around Frank Ocean's work. Their connection shows how music and photography can influence each other.",
+        connectionTitle: "assets/connection-wolfgang-title.svg",
+        explanation: "Wolfgang Tillmans photographed Frank Ocean for the cover of Blonde. His track “Device Control” also appears on Ocean’s visual album Endless.",
         takeaway: "Music becomes image; photography becomes part of the sound."
     },
     Moonlight: {
@@ -29,7 +30,7 @@ const connections = {
         photo: "assets/quick-baldwin.png",
         title: "assets/quick-baldwin-title.svg",
         style: "preview-books",
-        explanation: "James Baldwin and Frank Ocean both explore love, identity and the difficulty of being fully seen.",
+        explanation: "James Baldwin and Frank Ocean both explore love and identity in their work. Their stories also examine the difficulty of being fully seen.",
         takeaway: "Personal stories can become larger cultural truths."
     }
 };
@@ -87,9 +88,15 @@ function showSelectedSubject(selectedConnection) {
         photo.hidden = false;
     }
 
-    if (selectedConnection.title) {
+    let titleImage = selectedConnection.title;
+
+    if (subject.classList.contains("connection-subject") && selectedConnection.connectionTitle) {
+        titleImage = selectedConnection.connectionTitle;
+    }
+
+    if (titleImage) {
         const title = document.getElementById("selected-title");
-        title.src = selectedConnection.title;
+        title.src = titleImage;
         title.alt = selectedConnection.name;
         title.hidden = false;
         document.getElementById("selected-name").hidden = true;

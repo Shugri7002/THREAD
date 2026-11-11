@@ -451,10 +451,9 @@ h1, h2, p { margin-top: 0; }
 .takeaway { margin-top: 14px; padding: 14px; background: var(--light); }
 
 .reveal-pair {
-    margin-top: 28px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
 }
 
 .small-image { height: 132px; border-radius: 10px; }
@@ -503,7 +502,7 @@ h1, h2, p { margin-top: 0; }
     background: var(--placeholder);
 }
 
-.preview-photo img {
+.preview-photo img, .connection-photo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -594,6 +593,101 @@ h1, h2, p { margin-top: 0; }
     margin: 0;
     padding: 0 24px;
     background: #4200F6;
+}
+
+.page.connection-page {
+    min-height: min(844px, 100dvh);
+    display: flex;
+    flex-direction: column;
+}
+
+.connection-page .quick-header {
+    flex-shrink: 0;
+}
+
+.connection-content {
+    flex: 1;
+    padding: 22px 20px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.connection-heading {
+    margin: 0;
+    padding: 11px 0 4px;
+}
+
+.connection-heading img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.connection-photo {
+    aspect-ratio: 167 / 148;
+    overflow: hidden;
+    border: 1px solid #B8B8B8;
+    border-radius: 14px;
+    background: var(--placeholder);
+}
+
+.connection-subject .preview-category {
+    width: fit-content;
+    max-width: 100%;
+    margin-top: 12px;
+}
+
+.connection-name {
+    min-height: 21px;
+    margin-top: 12px;
+    padding: 5px 0 4px;
+    font-size: 18px;
+    line-height: 1.15;
+}
+
+.preview-selected .connection-name {
+    margin-top: 6px;
+}
+
+.connection-name img {
+    transform: none;
+}
+
+.connection-subject.preview-magazine .connection-name img,
+.connection-subject.preview-books .connection-name img {
+    max-width: min(100%, 148px);
+}
+
+.connection-story {
+    color: #666666;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.connection-story p {
+    margin: 0;
+}
+
+.connection-story .takeaway {
+    padding: 14px 16px;
+    border: 1px solid #4D5A00;
+    border-radius: 14px;
+    background: #D4FF60;
+    color: #4D5A00;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 21px;
+}
+
+.connection-story .label {
+    margin-bottom: 7px;
+    color: inherit;
+    font-size: 11px;
+    font-weight: inherit;
+    line-height: 15px;
 }
 
 .intro-body {
