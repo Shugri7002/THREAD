@@ -2,7 +2,11 @@ const connections = {
     "Wolfgang Tillmans": {
         name: "WOLFGANG TILLMANS",
         category: "PHOTOGRAPHY",
-        explanation: "Wolfgang Tillmans photographed Frank Ocean and contributed to the visual world around Frank Ocean's work. Their connection shows how music and photography can influence each other.",
+        photo: "assets/reveal-wolfgang.png",
+        title: "assets/reveal-wolfgang-title.svg",
+        connectionTitle: "assets/connection-wolfgang-title.svg",
+        routeTitle: "assets/route-wolfgang-title.svg",
+        explanation: "Wolfgang Tillmans photographed Frank Ocean for the cover of Blonde. His track “Device Control” also appears on Ocean’s visual album Endless.",
         takeaway: "Music becomes image; photography becomes part of the sound."
     },
     Moonlight: {
@@ -11,10 +15,23 @@ const connections = {
         explanation: "Moonlight and Frank Ocean both use quiet, emotional storytelling to explore identity, memory and tenderness.",
         takeaway: "A feeling can move between music and film."
     },
+    "Boys Don’t Cry": {
+        name: "BOYS DON’T CRY",
+        category: "MAGAZINE",
+        photo: "assets/boys-dont-cry-magazine.webp",
+        photoAlt: "Frank Ocean’s Boys Don’t Cry magazine in its silver wrapper",
+        title: "assets/quick-boys-title.svg",
+        style: "preview-magazine",
+        explanation: "Frank Ocean released the visual magazine Boys Don’t Cry alongside his album Blonde in 2016. The magazine brings together music, photography, visual art, and writing.",
+        takeaway: "An album becomes more than music: it becomes a visual world."
+    },
     "James Baldwin": {
         name: "JAMES BALDWIN",
         category: "LITERATURE",
-        explanation: "James Baldwin and Frank Ocean both explore love, identity and the difficulty of being fully seen.",
+        photo: "assets/quick-baldwin.png",
+        title: "assets/quick-baldwin-title.svg",
+        style: "preview-books",
+        explanation: "James Baldwin and Frank Ocean both explore love and identity in their work. Their stories also examine the difficulty of being fully seen.",
         takeaway: "Personal stories can become larger cultural truths."
     }
 };
@@ -29,7 +46,7 @@ function setText(id, text) {
 
 function chooseConnection(connectionName) {
     localStorage.setItem("selectedConnection", connectionName);
-    window.location.href = "connection.html";
+    window.location.href = "reveal.html";
 }
 
 function getSelectedConnection() {
@@ -50,10 +67,142 @@ function showSelectedConnection() {
     setText("selected-category", selectedConnection.category);
     setText("connection-text", selectedConnection.explanation);
     setText("takeaway-text", selectedConnection.takeaway);
+
+    showSelectedSubject(selectedConnection);
 }
 
-function openRevealPage() {
-    window.location.href = "reveal.html";
+function showSelectedSubject(selectedConnection) {
+    const subject = document.getElementById("selected-subject");
+
+    if (!subject) {
+        return;
+    }
+
+    if (selectedConnection.style) {
+        subject.classList.add(selectedConnection.style);
+    }
+
+    if (selectedConnection.photo) {
+        const photo = document.getElementById("selected-photo");
+        photo.src = selectedConnection.photo;
+        photo.alt = selectedConnection.photoAlt || selectedConnection.name;
+        photo.hidden = false;
+    }
+
+    let titleImage = selectedConnection.title;
+
+    if (subject.classList.contains("connection-subject") && selectedConnection.connectionTitle) {
+        titleImage = selectedConnection.connectionTitle;
+    }
+
+    if (titleImage) {
+        const title = document.getElementById("selected-title");
+        title.src = titleImage;
+        title.alt = selectedConnection.name;
+        title.hidden = false;
+        document.getElementById("selected-name").hidden = true;
+    }
+}
+
+function getVisitedTopics() {
+    const savedTopics = localStorage.getItem("visitedTopics");
+
+    if (!savedTopics) {
+        return [];
+    }
+
+    try {
+        const visitedTopics = JSON.parse(savedTopics);
+
+        if (!Array.isArray(visitedTopics)) {
+            return [];
+        }
+
+        return visitedTopics;
+    } catch (error) {
+        return [];
+    }
+}
+
+function saveVisitedTopic(topicName, category) {
+    const visitedTopics = getVisitedTopics();
+
+    for (let index = 0; index < visitedTopics.length; index++) {
+        if (visitedTopics[index].name === topicName) {
+            return;
+        }
+    }
+
+    visitedTopics.push({
+        name: topicName,
+        category: category
+    });
+
+    localStorage.setItem("visitedTopics", JSON.stringify(visitedTopics));
+}
+
+function showRoute() {
+    const routeList = document.getElementById("visited-topics");
+
+    if (!routeList) {
+        return;
+    }
+
+    const visitedTopics = getVisitedTopics();
+    const template = document.getElementById("route-stop");
+
+    routeList.replaceChildren();
+    document.getElementById("route-empty").hidden = visitedTopics.length > 0;
+
+    for (let index = 0; index < visitedTopics.length; index++) {
+        const topic = visitedTopics[index];
+        const connection = connections[topic.name];
+        const stop = template.content.cloneNode(true);
+        const category = stop.querySelector(".route-category");
+        const title = stop.querySelector(".route-name");
+        let titleImage = "";
+
+        stop.querySelector(".route-number").textContent = index + 1;
+        category.textContent = topic.category;
+        category.classList.add("route-" + topic.category.toLowerCase());
+
+        if (topic.name === "Frank Ocean") {
+            titleImage = "assets/route-frank-title.svg";
+        } else if (connection) {
+            titleImage = connection.routeTitle || connection.title;
+        }
+
+        if (titleImage) {
+            const image = document.createElement("img");
+            image.src = titleImage;
+            image.alt = topic.name;
+            title.appendChild(image);
+        } else {
+            title.textContent = topic.name;
+        }
+
+        routeList.appendChild(stop);
+    }
+}
+
+function startNewThread() {
+    localStorage.removeItem("visitedTopics");
+    localStorage.removeItem("selectedConnection");
+    saveVisitedTopic("Frank Ocean", "MUSIC");
+}
+
+if (document.getElementById("connection-choices")) {
+    saveVisitedTopic("Frank Ocean", "MUSIC");
+}
+
+if (document.getElementById("connection-text")) {
+    const selectedName = localStorage.getItem("selectedConnection");
+
+    if (connections[selectedName]) {
+        saveVisitedTopic("Frank Ocean", "MUSIC");
+        saveVisitedTopic(selectedName, connections[selectedName].category);
+    }
 }
 
 showSelectedConnection();
+window.addEventListener("pageshow", showRoute);
