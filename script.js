@@ -111,7 +111,17 @@ function getVisitedTopics() {
         return [];
     }
 
-    return JSON.parse(savedTopics);
+    try {
+        const visitedTopics = JSON.parse(savedTopics);
+
+        if (!Array.isArray(visitedTopics)) {
+            return [];
+        }
+
+        return visitedTopics;
+    } catch (error) {
+        return [];
+    }
 }
 
 function saveVisitedTopic(topicName, category) {
