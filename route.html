@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THREAD - Your Route</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="route-body">
+    <main class="page route-page">
+        <header class="header route-header">
+            <a href="topic.html#connection-choices">
+                <img src="assets/route-logo.svg" alt="THREAD" width="85" height="30">
+            </a>
+            <button class="route-arrow" type="button" disabled aria-label="Explore on Your Own (coming soon)">
+                <img src="assets/route-arrow.svg" alt="">
+            </button>
+        </header>
+
+        <section class="route-content">
+            <h1><img src="assets/route-heading.svg" alt="Your thread ends here" width="334" height="54"></h1>
+            <p class="route-subtitle">This is the route you followed</p>
+
+            <p class="route-empty" id="route-empty">No topics visited yet. <a href="index.html">Start a thread</a>.</p>
+            <ol class="route-list" id="visited-topics" aria-label="Visited topics"></ol>
+
+            <template id="route-stop">
+                <li class="route-stop">
+                    <span class="route-number" aria-hidden="true"></span>
+                    <div class="route-details">
+                        <p class="route-category"></p>
+                        <h2 class="route-name"></h2>
+                    </div>
+                </li>
+            </template>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

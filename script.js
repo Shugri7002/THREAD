@@ -5,6 +5,7 @@ const connections = {
         photo: "assets/reveal-wolfgang.png",
         title: "assets/reveal-wolfgang-title.svg",
         connectionTitle: "assets/connection-wolfgang-title.svg",
+        routeTitle: "assets/route-wolfgang-title.svg",
         explanation: "Wolfgang Tillmans photographed Frank Ocean for the cover of Blonde. His track “Device Control” also appears on Ocean’s visual album Endless.",
         takeaway: "Music becomes image; photography becomes part of the sound."
     },
@@ -130,6 +131,50 @@ function saveVisitedTopic(topicName, category) {
     localStorage.setItem("visitedTopics", JSON.stringify(visitedTopics));
 }
 
+function showRoute() {
+    const routeList = document.getElementById("visited-topics");
+
+    if (!routeList) {
+        return;
+    }
+
+    const visitedTopics = getVisitedTopics();
+    const template = document.getElementById("route-stop");
+
+    routeList.replaceChildren();
+    document.getElementById("route-empty").hidden = visitedTopics.length > 0;
+
+    for (let index = 0; index < visitedTopics.length; index++) {
+        const topic = visitedTopics[index];
+        const connection = connections[topic.name];
+        const stop = template.content.cloneNode(true);
+        const category = stop.querySelector(".route-category");
+        const title = stop.querySelector(".route-name");
+        let titleImage = "";
+
+        stop.querySelector(".route-number").textContent = index + 1;
+        category.textContent = topic.category;
+        category.classList.add("route-" + topic.category.toLowerCase());
+
+        if (topic.name === "Frank Ocean") {
+            titleImage = "assets/route-frank-title.svg";
+        } else if (connection) {
+            titleImage = connection.routeTitle || connection.title;
+        }
+
+        if (titleImage) {
+            const image = document.createElement("img");
+            image.src = titleImage;
+            image.alt = topic.name;
+            title.appendChild(image);
+        } else {
+            title.textContent = topic.name;
+        }
+
+        routeList.appendChild(stop);
+    }
+}
+
 function startNewThread() {
     localStorage.removeItem("visitedTopics");
     localStorage.removeItem("selectedConnection");
@@ -150,3 +195,4 @@ if (document.getElementById("connection-text")) {
 }
 
 showSelectedConnection();
+window.addEventListener("pageshow", showRoute);
