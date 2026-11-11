@@ -11,6 +11,12 @@ const connections = {
         explanation: "Moonlight and Frank Ocean both use quiet, emotional storytelling to explore identity, memory and tenderness.",
         takeaway: "A feeling can move between music and film."
     },
+    "Boys Don’t Cry": {
+        name: "BOYS DON’T CRY",
+        category: "MAGAZINE",
+        explanation: "Frank Ocean released the visual magazine Boys Don’t Cry alongside his album Blonde in 2016. The magazine brings together music, photography, visual art, and writing.",
+        takeaway: "An album becomes more than music: it becomes a visual world."
+    },
     "James Baldwin": {
         name: "JAMES BALDWIN",
         category: "LITERATURE",
@@ -29,7 +35,7 @@ function setText(id, text) {
 
 function chooseConnection(connectionName) {
     localStorage.setItem("selectedConnection", connectionName);
-    window.location.href = "connection.html";
+    window.location.href = "reveal.html";
 }
 
 function getSelectedConnection() {

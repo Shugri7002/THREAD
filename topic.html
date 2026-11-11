@@ -6,87 +6,104 @@
     <title>THREAD - Frank Ocean</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <main class="page">
-        <header class="header">
-            <a class="logo" href="index.html">THREAD</a>
-            <a class="back-button" href="index.html" aria-label="Back">&larr;</a>
+<body class="quick-read-body">
+    <main class="page quick-read-page">
+        <header class="header quick-header">
+            <a href="index.html"><img src="assets/quick-logo.svg" alt="THREAD" width="85" height="30"></a>
+            <a class="back-button" href="index.html" aria-label="Back to the introduction">
+                <img src="assets/quick-back.svg" alt="" width="16" height="16">
+            </a>
         </header>
 
         <section class="topic-page">
-            <p class="breadcrumb">TOPICS &mdash; MUSIC &mdash; FRANK OCEAN</p>
+            <div class="topic-heading">
+                <p class="pill">MUSIC</p>
+                <h1 class="topic-title">
+                    <img src="assets/quick-frank-title.svg" alt="Frank Ocean" width="179" height="88">
+                </h1>
+            </div>
 
-            <p class="pill">MUSIC</p>
-            <h1 class="topic-title">FRANK<br>OCEAN</h1>
-            <div class="placeholder topic-image"></div>
+            <div class="topic-image">
+                <img src="assets/quick-frank.png" alt="Frank Ocean wearing headphones">
+            </div>
 
             <p class="topic-copy">An elusive singer, writer and image-maker whose work reshaped the emotional range of modern pop through silence, slowness and ambiguity.</p>
 
-            <div class="tabs" aria-label="Topic sections">
-                <span class="active-tab">Quick Read</span>
-                <span>Listen</span>
-                <span>Deep Dive</span>
+            <div class="tabs" aria-label="Content options">
+                <span class="active-tab" aria-current="true">Quick Read</span>
+                <span aria-disabled="true">Listen (soon)</span>
+                <span aria-disabled="true">Deep Dive (soon)</span>
             </div>
 
-            <div class="read-row">
-                <span>QUICK READ</span>
-                <span>4 MIN READ</span>
-            </div>
+            <article class="quick-article" aria-label="Quick Read">
+                <div class="read-row">
+                    <span>QUICK READ</span>
+                    <span>4 MIN READ</span>
+                </div>
+                <img class="article-divider" src="assets/quick-divider.svg" alt="" width="350" height="1">
 
-            <h2 class="article-title">Frank Ocean's music feels intimate because it leaves room for the listener to finish the thought.</h2>
+                <h2 class="article-title">Frank Ocean's music feels intimate because it leaves room for the listener to finish the thought.</h2>
+                <p>He first surfaced as a songwriter at the edges of the industry, then stepped forward with a voice that was direct but never overexplained. Channel Orange moved between memory and desire; Blonde broke those ideas into fragments and treated silence like an instrument.</p>
+                <p>Sparse interviews, controlled visuals and long gaps between releases make each appearance feel considered. The mystery protects the work from becoming background noise.</p>
 
-            <p>He first surfaced as a songwriter at the edges of the industry, then stepped forward with a voice that was direct but never overexplained. Channel Orange moved between memory and desire; Blonde broke those ideas into fragments and treated silence like an instrument.</p>
-
-            <p>Sparse interviews, controlled visuals and long gaps between releases make each appearance feel considered. The mystery protects the work from becoming background noise.</p>
-
-            <div class="takeaway">
-                <p class="label">IN ONE LINE</p>
-                <p>Frank Ocean made uncertainty feel like a complete artistic language.</p>
-            </div>
+                <div class="takeaway">
+                    <p class="label">IN ONE LINE</p>
+                    <p>Frank Ocean made uncertainty feel like a complete artistic language.</p>
+                </div>
+            </article>
         </section>
 
-        <section class="connection-list">
-            <h2 class="section-title">WHERE TO NEXT?</h2>
-            <p class="section-copy">Choose one connection to continue your thread.</p>
+        <section class="connection-list" id="connection-choices">
+            <div>
+                <h2 class="section-title"><img src="assets/quick-next-title.svg" alt="Where to next?" width="314" height="25"></h2>
+                <p class="section-copy">Choose one connection to continue your thread</p>
+            </div>
 
-            <button class="card choice-card" type="button" onclick="chooseConnection('Wolfgang Tillmans')">
-                <div class="placeholder"></div>
-                <div class="card-body">
-                    <p class="label">PHOTOGRAPHY</p>
-                    <h2>WOLFGANG TILLMANS</h2>
-                    <p>A photographer connected to Frank Ocean's visual world.</p>
-                    <div class="action-row">
-                        <span>Explore</span>
-                        <span>&rarr;</span>
-                    </div>
-                </div>
-            </button>
+            <div class="connection-cards">
+                <button class="card choice-card photo-card" type="button" aria-label="Explore Wolfgang Tillmans" onclick="chooseConnection('Wolfgang Tillmans')">
+                    <span class="card-image">
+                        <img src="assets/quick-wolfgang.png" alt="">
+                    </span>
+                    <span class="card-body">
+                        <span class="card-category">PHOTOGRAPHY</span>
+                        <img class="card-title" src="assets/quick-wolfgang-title.svg" alt="" width="266" height="17">
+                        <span class="card-copy">What does a photographer have to do with Frank Ocean?</span>
+                        <span class="action-row">
+                            <span class="card-arrow"><img src="assets/quick-photo-arrow.svg" alt="" width="16" height="16"></span>
+                        </span>
+                    </span>
+                </button>
 
-            <button class="card choice-card" type="button" onclick="chooseConnection('Moonlight')">
-                <div class="placeholder"></div>
-                <div class="card-body">
-                    <p class="label">FILM</p>
-                    <h2>MOONLIGHT</h2>
-                    <p>A film that shares something deeper with Frank Ocean's work.</p>
-                    <div class="action-row">
-                        <span>Explore</span>
-                        <span>&rarr;</span>
-                    </div>
-                </div>
-            </button>
+                <button class="card choice-card magazine-card" type="button" aria-label="Explore Boys Don’t Cry magazine" onclick="chooseConnection('Boys Don’t Cry')">
+                    <span class="card-image">
+                        <img src="assets/boys-dont-cry-magazine.webp" alt="Frank Ocean’s Boys Don’t Cry magazine in its silver wrapper">
+                    </span>
+                    <span class="card-body">
+                        <span class="card-category">MAGAZINE</span>
+                        <img class="card-title" src="assets/quick-boys-title.svg" alt="" width="204" height="18">
+                        <span class="card-copy">The visual magazine Frank Ocean released alongside Blonde.</span>
+                        <span class="action-row">
+                            <span class="card-arrow"><img src="assets/quick-film-arrow.svg" alt="" width="16" height="16"></span>
+                        </span>
+                    </span>
+                </button>
 
-            <button class="card choice-card" type="button" onclick="chooseConnection('James Baldwin')">
-                <div class="placeholder"></div>
-                <div class="card-body">
-                    <p class="label">BOOKS / LITERATURE</p>
-                    <h2>JAMES BALDWIN</h2>
-                    <p>A writer whose ideas connect unexpectedly to Frank Ocean.</p>
-                    <div class="action-row">
-                        <span>Explore</span>
-                        <span>&rarr;</span>
-                    </div>
-                </div>
-            </button>
+                <button class="card choice-card books-card" type="button" aria-label="Explore James Baldwin" onclick="chooseConnection('James Baldwin')">
+                    <span class="card-image">
+                        <img src="assets/quick-baldwin.png" alt="">
+                    </span>
+                    <span class="card-body">
+                        <span class="card-category">BOOKS / LITERATURE</span>
+                        <img class="card-title" src="assets/quick-baldwin-title.svg" alt="" width="197" height="19">
+                        <span class="card-copy">A writer from another era, connected in an unexpected way.</span>
+                        <span class="action-row">
+                            <span class="card-arrow"><img src="assets/quick-books-arrow.svg" alt="" width="16" height="16"></span>
+                        </span>
+                    </span>
+                </button>
+            </div>
+
+            <img class="route-progress" src="assets/quick-route.svg" alt="" width="350" height="6">
         </section>
     </main>
 
