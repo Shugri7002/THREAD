@@ -862,6 +862,147 @@ h1, h2, p { margin-top: 0; }
     filter: brightness(0);
 }
 
+.explore-header {
+    height: 65px;
+}
+
+.explore-intro {
+    padding: 31px 20px 18px;
+    color: #1B1515;
+    text-align: center;
+}
+
+.explore-intro h1 {
+    margin: 0 0 10px;
+}
+
+.explore-intro img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.explore-intro p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16px;
+}
+
+.explore-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+    padding: 0 28px 4px 23px;
+}
+
+.explore-card {
+    position: relative;
+    aspect-ratio: 1;
+}
+
+.explore-shape {
+    position: absolute;
+    top: -0.3%;
+    left: -0.3%;
+    width: 100.6%;
+    height: auto;
+}
+
+.explore-image {
+    position: absolute;
+    top: 7.8%;
+    left: 9.6%;
+    width: 75.8%;
+    height: auto;
+}
+
+.explore-fashion .explore-image {
+    left: 9%;
+}
+
+.explore-card h2 {
+    position: absolute;
+    top: var(--label-top, 92%);
+    left: 9.9%;
+    max-width: 72%;
+    margin: 0;
+}
+
+.explore-card h2 img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.explore-card-arrow {
+    position: absolute;
+    top: 81.5%;
+    left: 77.8%;
+    width: 18.5%;
+    aspect-ratio: 1;
+    padding: 0;
+    border: 1px solid var(--arrow-border);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: var(--arrow-color);
+}
+
+.explore-card-arrow img {
+    max-width: 65%;
+    height: auto;
+}
+
+.explore-fashion {
+    --label-top: 92.6%;
+    --arrow-color: #4200F6;
+    --arrow-border: #D4FF60;
+}
+
+.explore-cinema {
+    --label-top: 91%;
+    --arrow-color: #D4FF60;
+    --arrow-border: #4200F6;
+}
+
+.explore-video {
+    --label-top: 92.7%;
+    --arrow-color: #9CF0E3;
+    --arrow-border: #F238A7;
+}
+
+.explore-sound {
+    --label-top: 89.2%;
+    --arrow-color: #F238A7;
+    --arrow-border: #9CF0E3;
+}
+
+.explore-books {
+    --label-top: 92.4%;
+    --arrow-color: #FF4733;
+    --arrow-border: #1B1515;
+}
+
+.explore-photo {
+    --label-top: 89.5%;
+    --arrow-color: #1B1515;
+    --arrow-border: #FF4733;
+}
+
+.explore-availability {
+    margin: 0 23px;
+    color: #666666;
+    font-size: 11px;
+    line-height: 14px;
+    text-align: center;
+}
+
+.explore-card-arrow:disabled {
+    cursor: not-allowed;
+}
+
 .intro-body {
     display: grid;
     min-height: 100dvh;
