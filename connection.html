@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THREAD - What Connects Them?</title>
+    <title>THREAD - The Connection</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,28 +19,33 @@
         </div>
 
         <section class="intro">
-            <h1 class="title">WHAT CONNECTS<br>THEM?</h1>
-            <p class="label">FOLLOW THE THREAD</p>
+            <h1 class="title">THE<br>CONNECTION</h1>
         </section>
 
-        <section class="subject">
-            <div class="placeholder subject-image"></div>
-            <p class="pill">MUSIC</p>
-            <h2 class="subject-name">FRANK OCEAN</h2>
+        <section class="reveal-pair">
+            <article>
+                <div class="placeholder small-image"></div>
+                <p class="pill">MUSIC</p>
+                <h2 class="small-name">FRANK OCEAN</h2>
+            </article>
+
+            <article>
+                <div class="placeholder small-image"></div>
+                <p class="pill" id="selected-category"></p>
+                <h2 class="small-name" id="selected-name"></h2>
+            </article>
         </section>
 
-        <svg class="thread-line" viewBox="0 0 180 360" aria-hidden="true">
-            <path d="M94 8 C28 72, 154 120, 82 184 C20 240, 150 278, 82 352" />
-        </svg>
-
-        <section class="subject">
-            <div class="placeholder subject-image"></div>
-            <p class="pill" id="selected-category"></p>
-            <h2 class="subject-name" id="selected-name"></h2>
+        <section class="reveal">
+            <p id="connection-text"></p>
+            <div class="takeaway">
+                <p class="label">IN ONE LINE</p>
+                <p id="takeaway-text"></p>
+            </div>
         </section>
 
-        <button class="reveal-button" type="button" onclick="openRevealPage()">
-            <span>REVEAL CONNECTION</span>
+        <button class="reveal-button" type="button">
+            <span>CONTINUE THREAD</span>
             <span>&rarr;</span>
         </button>
     </main>
