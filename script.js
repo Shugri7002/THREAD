@@ -103,4 +103,50 @@ function showSelectedSubject(selectedConnection) {
     }
 }
 
+function getVisitedTopics() {
+    const savedTopics = localStorage.getItem("visitedTopics");
+
+    if (!savedTopics) {
+        return [];
+    }
+
+    return JSON.parse(savedTopics);
+}
+
+function saveVisitedTopic(topicName, category) {
+    const visitedTopics = getVisitedTopics();
+
+    for (let index = 0; index < visitedTopics.length; index++) {
+        if (visitedTopics[index].name === topicName) {
+            return;
+        }
+    }
+
+    visitedTopics.push({
+        name: topicName,
+        category: category
+    });
+
+    localStorage.setItem("visitedTopics", JSON.stringify(visitedTopics));
+}
+
+function startNewThread() {
+    localStorage.removeItem("visitedTopics");
+    localStorage.removeItem("selectedConnection");
+    saveVisitedTopic("Frank Ocean", "MUSIC");
+}
+
+if (document.getElementById("connection-choices")) {
+    saveVisitedTopic("Frank Ocean", "MUSIC");
+}
+
+if (document.getElementById("connection-text")) {
+    const selectedName = localStorage.getItem("selectedConnection");
+
+    if (connections[selectedName]) {
+        saveVisitedTopic("Frank Ocean", "MUSIC");
+        saveVisitedTopic(selectedName, connections[selectedName].category);
+    }
+}
+
 showSelectedConnection();
